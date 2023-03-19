@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBJECT DETECTION IN AN IMAGE MODEL</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg  navbar_edit ">
+            <div class="container-fluid ">
+                <a class="navbar-brand text-light" href="#">OBJECTIFY</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" aria-current="page" href="#">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+      </nav>
+
+      <div style="margin-top: 2rem">
+        
+    <h1> Object Detector </h1>
+
+    <div class="section_content" style="font-size: 1em; padding: 0;">
+      <p>
+        Hi there! This is an object detector.
+        Given an image, it will localize the objects and tell which class the model thinks they belong to.
+        There are only
+        <a href="https://raw.githubusercontent.com/v-iashin/WebsiteYOLO/master/data/coco.names" class="intext text-warning "> 80 classes</a>
+        that the model knows. Make sure to adjust your expectations :)
+      </p>
+      <p>
+        The detector is based on <a href="https://pjreddie.com/darknet/yolo/" class="intext text-warning">YOLOv3</a>
+        and was trained on a large dataset of annotated images called
+        <a href="https://cocodataset.org" class="intext text-warning">COCO</a>.
+        It used to be the state-of-the-art among fast object detectors when I re-implemented it just for
+        fun and glued to this project.
+      </p>
+      <p style="padding: 0;">
+        Under the hood, the webpage (front-end) will send your image to the cloud server (back-end).
+        Then, the model makes detections and sends results for you to see here.
+        If you are interested in details, check out my post on
+        <a href="./how_did_you_build_your_detector.html" class="intext text-warning">how I built it</a>.
+      </p>
+      <p>
+        <i>Please note that the results are saved on the server and inspected later on.</i>
+      </p>
+
+      <hr style="margin: 1em;">
+
+      <!-- buttons -->
+      <div class="upload_cont"style="margin: 1em;">
+        <!-- input file -->
+        <div id="examples_text" class="examples_text">
+          Try examples:
+          a <li id="example_dog" class="example text-warning">dog</li>,
+          a <li id="example_crosswalk" class="example text-warning">crosswalk</li>,
+          a <li id="example_wedding" class="example text-warning">wedding</li>,
+          and <li id="example_ngc1499" class="example text-warning">NGC1499</li>
+          <br> or
+        </div>
+        <label id="upload btn-font" class="upload_btn" for="file-input" class="btn upload " > Upload Your Image </label>
+        <input id="file-input"  type="file" accept="image/*">
+        <!-- detect -->
+        <button id="detect" class="btn detect hide "> Detect </button>
+        <!-- reload -->
+        <button id="reload" class="btn reload hide" onclick="reload()"> Reset ↻ </button>
+      </div>
+    </div>
+      </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
